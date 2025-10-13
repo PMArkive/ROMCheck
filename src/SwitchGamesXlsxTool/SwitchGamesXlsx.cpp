@@ -2571,22 +2571,22 @@ int CSwitchGamesXlsx::writeTable()
 		{
 			return 1;
 		}
-		fprintf(fp, "[RowCount]\t%d\r\n", sheetInfo.RowCount);
-		fprintf(fp, "[ColumnCount]\t%d\r\n", sheetInfo.ColumnCount);
-		fprintf(fp, "[TabSelected]\t%d\r\n", sheetInfo.TabSelected ? 1 : 0);
-		fprintf(fp, "[TopLeftCellRowIndex]\t%d\r\n", sheetInfo.TopLeftCellRowIndex);
-		fprintf(fp, "[TopLeftCellColumnIndex]\t%d\r\n", sheetInfo.TopLeftCellColumnIndex);
-		fprintf(fp, "[ActiveCellRowIndex]\t%d\r\n", sheetInfo.ActiveCellRowIndex);
-		fprintf(fp, "[ActiveCellColumnIndex]\t%d\r\n", sheetInfo.ActiveCellColumnIndex);
+		fprintf(fp, "[RowCount]\t%d\n", sheetInfo.RowCount);
+		fprintf(fp, "[ColumnCount]\t%d\n", sheetInfo.ColumnCount);
+		fprintf(fp, "[TabSelected]\t%d\n", sheetInfo.TabSelected ? 1 : 0);
+		fprintf(fp, "[TopLeftCellRowIndex]\t%d\n", sheetInfo.TopLeftCellRowIndex);
+		fprintf(fp, "[TopLeftCellColumnIndex]\t%d\n", sheetInfo.TopLeftCellColumnIndex);
+		fprintf(fp, "[ActiveCellRowIndex]\t%d\n", sheetInfo.ActiveCellRowIndex);
+		fprintf(fp, "[ActiveCellColumnIndex]\t%d\n", sheetInfo.ActiveCellColumnIndex);
 		fprintf(fp, "[Width]");
 		for (vector<n32>::const_iterator it = sheetInfo.Width.begin(); it != sheetInfo.Width.end(); ++it)
 		{
 			n32 nWidth = *it;
 			fprintf(fp, "\t%d", nWidth);
 		}
-		fprintf(fp, "\r\n");
-		fprintf(fp, "\r\n");
-		fprintf(fp, "[style]\r\n");
+		fprintf(fp, "\n");
+		fprintf(fp, "\n");
+		fprintf(fp, "[style]\n");
 		for (n32 nRowIndex = 0; nRowIndex < sheetInfo.RowCount; nRowIndex++)
 		{
 			map<n32, pair<bool, wstring>>& mColumnText = mRowColumnText[nRowIndex];
@@ -2631,7 +2631,7 @@ int CSwitchGamesXlsx::writeTable()
 				}
 				fprintf(fp, "\t%s", sTextU8.c_str());
 			}
-			fprintf(fp, "\r\n");
+			fprintf(fp, "\n");
 		}
 		fclose(fp);
 	}

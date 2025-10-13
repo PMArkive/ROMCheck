@@ -180,14 +180,14 @@ int UMain(int argc, UChar* argv[])
 	{
 		return 1;
 	}
-	fprintf(fp, "[yes]\t[no]\t[year]\t[name]\t[path]\r\n");
+	fprintf(fp, "[yes]\t[no]\t[year]\t[name]\t[path]\n");
 	n32 nYear = -1;
 	for (vector<SRecord>::const_iterator it = vRecord.begin(); it != vRecord.end(); ++it)
 	{
 		const SRecord& record = *it;
 		if (record.Year != nYear)
 		{
-			fprintf(fp, "\r\n");
+			fprintf(fp, "\n");
 			nYear = record.Year;
 		}
 		if (record.Exist)
@@ -200,7 +200,7 @@ int UMain(int argc, UChar* argv[])
 		}
 		fprintf(fp, "%04d\t", record.Year);
 		fprintf(fp, "%s\t", record.Name.c_str());
-		fprintf(fp, "%s\r\n", record.Path.c_str());
+		fprintf(fp, "%s\n", record.Path.c_str());
 	}
 	fclose(fp);
 	return 0;

@@ -48,12 +48,12 @@ int UMain(int argc, UChar* argv[])
 		const map<n32, string>& mIdName = itYear->second;
 		if (ftell(fp) != 0)
 		{
-			fprintf(fp, "\r\n\r\n");
+			fprintf(fp, "\n\n");
 		}
 		for (map<n32, string>::const_iterator it = mIdName.begin(); it != mIdName.end(); ++it)
 		{
 			const string& sName = it->second;
-			fprintf(fp, "%04d %s\r\n", nYear, sName.c_str());
+			fprintf(fp, "%04d %s\n", nYear, sName.c_str());
 		}
 	}
 	fclose(fp);
